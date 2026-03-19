@@ -1,0 +1,118 @@
+﻿@model Tp_CourseWork.Models.ViewModels.LocalitiesWithUniqMayor
+@{
+    ViewBag.Title = "LOCALITY";
+}
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href='@Url.Content("~/wwwroot/lib/jqueryui/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: url('https://www.kartdeko.ru/upload/iblock/4f0/9zk0js2yb23oss2ffn693v85vj3nz3k0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 4em;
+        }
+
+        table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 40px auto;
+        background-color: rgba(255, 255, 255, 0.3);
+        overflow: auto; /* Add overflow property for scrolling */
+        max-height: 600px; /* Adjust the max-height as needed */
+        }
+
+        table, th, td {
+            border: 2px solid #ddd; /* Doubled the border thickness */
+            text-align: center;
+        }
+
+        th, td {
+            padding: 20px; /* Doubled the padding */
+            font-size: 2em; /* Twice as large */
+        }
+
+        th {
+            background-color: rgba(242, 242, 242, 0.3); /* 40% transparent light gray background */
+        }
+
+        .buttons-container {
+            text-align: center;
+            margin-top: 40px; /* Doubled the margin */
+        }
+
+        .button-wrapper {
+            display: inline-block;
+            margin: 20px; /* Doubled the margin */
+            border: 4px solid #333; /* Doubled the border thickness */
+            border-radius: 8px; /* Doubled the border radius */
+            overflow: hidden;
+        }
+
+        .add-button, .statistic-button, .table-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px; /* Doubled the height */
+            width: 100%;
+            padding: 16px 4px; /* Doubled the padding */
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            text-align: center;
+            background-color: rgba(238, 238, 238, 0.3); /* 40% transparent light gray background */
+            font-size: 2em; /* Twice as large */
+        }
+        .add-button:hover, .statistic-button:hover, .table-button:hover {
+            background-color: rgba(221, 221, 221, 0.3); /* 40% transparent darker gray on hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>Список субъектов</h2>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Действия</th>
+        </tr>
+        @foreach (var c in Model.Localities)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>
+                    @Html.ActionLink("Смотреть", "Details", "Home", new { id = c.id }) |
+                    @Html.ActionLink("Изменить", "Update", "Home", new { id = c.id }) |
+                    @Html.ActionLink("Удалить", "Delete", "Home", new { id = c.id })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="buttons-container">
+        <div class="button-wrapper">
+            <a class="add-button" href="@Url.Action("Create", "Home")">Добавить субъект</a>
+        </div>
+        <div class="button-wrapper">
+            <a class="statistic-button" href="@Url.Action("Statistic", "Home")">Посмотреть статистику по всем субъектам</a>
+        </div>
+        <div class="button-wrapper">
+            <a class="table-button" href="@Url.Action("LocalityByTable", "Home")">Посмотреть все в виде таблицы</a>
+        </div>
+    </div>
+</body>
+</html>

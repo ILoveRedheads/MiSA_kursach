@@ -1,0 +1,30 @@
+@startuml
+
+title Компонентная диаграмма приложения МиСА
+
+package "Клиенты" {
+  [Web MVC клиент] as WebClient
+  [WPF GUI клиент] as GuiClient
+}
+
+package "Сервер" {
+  [ASP.NET Core приложение] as AspNetApp
+  [REST сервис данных\n(ApiController)] as DataApi
+  [REST сервис статистики\n(StatisticsController)] as StatsApi
+}
+
+package "Инфраструктура" {
+  [SQL Server\n(ApplicationContext / EF Core)] as Db
+  [Облачная функция\nYandex.Cloud] as YcFunc
+}
+
+WebClient --> DataApi : HTTP/JSON\nCRUD локаций
+WebClient --> StatsApi : HTTP/JSON\nСтатистика (cloud)
+
+GuiClient --> DataApi : HTTP/JSON\nПолучение списка локаций
+
+AspNetApp --> Db : EF Core
+StatsApi --> YcFunc : HTTP POST\nBudgets/Residants/SquareKm
+
+@enduml
+

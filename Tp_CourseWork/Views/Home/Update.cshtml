@@ -1,0 +1,119 @@
+﻿@model Tp_CourseWork.Models.Locality
+@{
+    ViewBag.Title = "Редактировать Субъект";
+}
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href='@Url.Content("~/wwwroot/lib/jqueryui/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: url('https://www.kartdeko.ru/upload/iblock/4f0/9zk0js2yb23oss2ffn693v85vj3nz3k0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 4em;
+        }
+
+        div {
+            width: 40%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        input[type="submit"] {
+            background-color: #464342;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #464342;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Редактировать Субъект</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                @Html.LabelFor(model => model.Name)
+                <p>@Html.EditorFor(model => model.Name)</p>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Type)
+                <p>@Html.EditorFor(model => model.Type)</p>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.NumberResidantsTh)
+                <p>@Html.EditorFor(model => model.NumberResidantsTh)</p>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.BudgetMlrd)
+                <p>@Html.EditorFor(model => model.BudgetMlrd)</p>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.SquareKm)
+                <p>@Html.EditorFor(model => model.SquareKm)</p>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Mayor)
+                <p>@Html.EditorFor(model => model.Mayor)</p>
+            </div>
+            <p><input type="submit" value="Сохранить" /></p>
+        }
+        @Html.ActionLink("Назад", "Index", "Home", new { @class = "back-link" })
+    </div>
+</body>
+</html>

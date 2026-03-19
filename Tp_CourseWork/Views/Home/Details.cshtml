@@ -1,0 +1,73 @@
+﻿@model Tp_CourseWork.Models.Locality
+@{
+    ViewBag.Title = "Детали Субъекта";
+}
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href='@Url.Content("~/wwwroot/lib/jqueryui/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: url('https://www.kartdeko.ru/upload/iblock/4f0/9zk0js2yb23oss2ffn693v85vj3nz3k0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 4em;
+        }
+
+        div {
+            width: 40%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #464342;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Id: @Html.DisplayFor(m => m.id)</h3>
+        <p>Название: @Html.DisplayFor(m => m.Name)</p>
+        <p>Тип: @Html.DisplayFor(m => m.Type)</p>
+        <p>Количество жителей: @Html.DisplayFor(m => m.NumberResidantsTh)</p>
+        <p>Бюджет: @Html.DisplayFor(m => m.BudgetMlrd)</p>
+        <p>Площадь: @Html.DisplayFor(m => m.SquareKm)</p>
+        <p>Глава Субъекта: @Html.DisplayFor(m => m.Mayor)</p>
+
+        @Html.ActionLink("Назад", "Index", "Home", new { @class = "back-link" })
+    </div>
+</body>
+</html>

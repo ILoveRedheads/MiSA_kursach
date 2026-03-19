@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tp_CourseWork</name>
+    </assembly>
+    <members>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetLocalities">
+            <summary>
+            Получить все локации
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetLStatistic">
+            <summary>
+            Получить статистику по бюджетам
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetLocalitiyById(System.Int32)">
+            <summary>
+            Получить все локации
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.CreateLocality(Tp_CourseWork.Models.Locality)">
+             <summary>
+             Добавить запись локации
+             </summary>
+             <remarks>
+             Пример:
+             
+                 POST api/CreateLocality
+            {
+              "id": 0,
+              "name": "Имя Локации",
+              "type": "City",
+              "numberResidantsTh": 1000,
+              "budgetMlrd": 1000,
+              "mayor": "Сергей Семёнович Собянин"
+            }
+             </remarks>
+             <param name="locality">Данные новой записи локации</param>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.UpdateLocality(Tp_CourseWork.Models.Locality)">
+             <summary>
+             Изменить запись локации
+             </summary>
+             <remarks>
+             Пример:
+             
+                 POST api/UpdateLocality
+            {
+              "id": 0,
+              "name": "Имя Локации",
+              "type": "City",
+              "numberResidantsTh": 1000,
+              "budgetMlrd": 1000,
+              "mayor": "Сергей Семёнович Собянин"
+            }
+             </remarks>
+             <param name="locality">Данные изменяемой записи локации</param>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.DeleteLocality(System.Int32)">
+            <summary>
+            Удалить локацию
+            </summary>
+            <param name="id">Id удаляемой записи локации</param>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetLocalitiesByMajor(System.String)">
+            <summary>
+            Получить все локации по ФИО мера
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetBudgets">
+            <summary>
+            Получить бюджеты
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetResidants">
+            <summary>
+            Получить население
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.ApiController.GetSquareKm">
+            <summary>
+            Получить площади (SquareKm) всех локаций
+            </summary>
+        </member>
+        <member name="T:Tp_CourseWork.Controllers.StatisticsController">
+            <summary>
+            REST-сервис для получения статистики по локациям.
+            Выделен отдельно от основного CRUD API, чтобы показать наличие второго сервиса.
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.StatisticsController.GetLocalStatistics">
+            <summary>
+            Локальная статистика (без облака) по бюджетам и населению.
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Controllers.StatisticsController.GetCloudStatistics">
+            <summary>
+            Статистика через облачную функцию Yandex.Cloud (ИИ/анализ данных).
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetLocalities">
+            <summary>
+            Получить всю информаци по всем локациям
+            </summary>
+            <returns>Лист локаций</returns>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetLocalityById(System.Int32)">
+            <summary>
+            Получить локацию по айди
+            </summary>
+            <returns>Локация</returns>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetLocalitiesByMayor(System.String)">
+            <summary>
+            Получить всю информаци по всем локациям
+            </summary>
+            <returns>Лист локаций</returns>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.CreateLocality(Tp_CourseWork.Models.Locality)">
+            <summary>
+            Создать локацию
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.UpdateLocality(Tp_CourseWork.Models.Locality)">
+            <summary>
+            Редактировать локацию
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.DeleteLocality(System.Int32)">
+            <summary>
+            Редактировать локацию
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetStatistic(System.Double[],System.Double[])">
+            <summary>
+            Получить статистические показатели бюджета
+            </summary>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetBudgets">
+            <summary>
+            Получть бюджеты
+            </summary>
+            <returns>Массив бюджетов</returns>
+        </member>
+        <member name="M:Tp_CourseWork.Repositories.BaseRepository.GetNumberResidants">
+            <summary>
+            Получть бюджеты
+            </summary>
+            <returns>Массив бюджетов</returns>
+        </member>
+        <member name="T:TpCourseWork.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:TpCourseWork.Migrations.init2">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TpCourseWork.Migrations.init2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

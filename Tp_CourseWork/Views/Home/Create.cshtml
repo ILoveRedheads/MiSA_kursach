@@ -1,0 +1,100 @@
+﻿@model Tp_CourseWork.Models.Locality
+@{
+    ViewBag.Title = "Добавить Субъект";
+}
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href='@Url.Content("~/wwwroot/lib/jqueryui/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: url('https://www.kartdeko.ru/upload/iblock/4f0/9zk0js2yb23oss2ffn693v85vj3nz3k0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            padding-bottom: 40px;
+            margin-top: 20px;
+            font-size: 4em;
+        }
+
+        form {
+            width: 40%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #464342;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            color: #333;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #464342;
+        }
+    </style>
+</head>
+<body>
+    <h2>Добавить Субъект</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <label>Название</label>
+        <p>@Html.EditorFor(model => model.Name)</p>
+
+        <label>Тип</label>
+        <p>@Html.EditorFor(model => model.Type)</p>
+
+        <label>Население, тыс. чел</label>
+        <p>@Html.EditorFor(model => model.NumberResidantsTh)</p>
+
+        <label>Бюджет, млрд. руб</label>
+        <p>@Html.EditorFor(model => model.BudgetMlrd)</p>
+
+        <label>Площадь, кв.км</label>
+        <p>@Html.EditorFor(model => model.SquareKm)</p>
+
+        <label>Глава Субъекта</label>
+        <p>@Html.EditorFor(model => model.Mayor)</p>
+
+        <p><input type="submit" value="Добавить" /></p>
+    }
+
+    @Html.ActionLink("Назад", "Index", "Home", new { @class = "back-link" })
+</body>
+</html>
